@@ -1,5 +1,4 @@
 import cpp
-from FunctionCall fc
-where
-    fc.getTarget().getName() = "memcpy"
-select fc
+from Function f, FunctionCall c
+where c.getTarget() = f and f.getName() = "memcpy"
+select c, f
